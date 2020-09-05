@@ -1,0 +1,18 @@
+
+h2 {
+    text-align: left;
+    color:#666768;
+}
+
+form {
+    background: url(interior.jpg);
+}
+
+.form-group {
+    color: rgb(131, 121, 121);
+}
+
+
+.hide{
+    display: none;  
+}
