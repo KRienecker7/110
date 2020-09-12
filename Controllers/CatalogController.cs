@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PropertyRental.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace PropertyRental.Controllers
@@ -9,6 +10,13 @@ namespace PropertyRental.Controllers
 
     public class CatalogController : Controller
     {
+        private DataContext dbContext;
+        public CatalogController(DataContext db)
+        {
+            this.dbContext = db;
+
+        }
+
         public IActionResult Index()
         {
             return View ();
@@ -21,57 +29,23 @@ namespace PropertyRental.Controllers
 
         public IActionResult AllProperties()
         {
-            var list = new List<Property>();
-            
-            list.Add(new Property()
-            {
-                Id = 1,         //adjust to match your inputs
-                Bathrooms = 2,
-                Description = "The first item on the list",
-                ImageUrl = "https://picsum.photos/450/300",
-                Title = "Super awesome condo",
-                Price = 1275.00m,
-                Rooms = 3,
-                Area = 300
-            });
-
-            list.Add(new Property()
-            {
-                Id = 1,
-                Bathrooms = 1,
-                Description = "Something something here the list",
-                ImageUrl = "https://picsum.photos/450/300",
-                Title = "Affordable apartment ",
-                Price = 1020.30m,
-                Rooms = 2,
-                Area = 250
-            });
-
-            list.Add(new Property()
-            {
-                Id = 1,
-                Bathrooms = 1,
-                Description = "Luxury something here the list",
-                ImageUrl = "https://picsum.photos/450/300",
-                Title = "Luxury apartment ",
-                Price = 2020.30m,
-                Rooms = 2,
-                Area = 450
-            });
-
+            var list = dbContext.Properties.ToList();
             return Json(list);
 
         }
-    [HttpPost]
+    [HttpPost]// decorator because it is for a post below, it is the http method to save from front end to back end
         public IActionResult RegisterProperty ( [FromBody] Property newProp)
         {
             System.Console.WriteLine("creating a new Property");
-            newProp.Id = 1;
+            
+           
 
             // save the obj to DB
-
+            dbContext.Properties.Add(newProp);
+            dbContext.SaveChanges();
             return Json(newProp);
         }
 
     }
 }
+//ORM

@@ -5,43 +5,32 @@
 
 @section Styles {
     <link href="/css/register.css" rel="stylesheet">
-    Test Text
 }
 
 <h2>Register New Property</h2>
 
-
-<div id="alertSaved" class="alert alert-success hide" role="alert">
-            You have successfully registered a property!
-        </div>
-<!--
-
-Title
-Monthly Price:
-Image
-Beds and Baths
-Location
-SqFt:
-Description
-
-    -->
     <form class="col-8">
+
+      <div id="alertSaved" class="alert alert-success hide" role="alert">
+            You have successfully registered a property!
+      </div>
+
   <div class="form-group">
-    <label for="exampleFormControlInput1">Title</label>
-    <input class="form-control" id="Title" type="text" placeholder="Title of the Property" readonly id="Title">
+    <label for="title">Title</label>
+    <input class="form-control" id="title" type="text" placeholder="Title of the Property">
   </div>
 
   <div class="form-group">
-    <label for="exampleFormControlInput1">Monthly Price</label>
-    <input class="form-control" id="Price" type="int" placeholder="Monthly Price" readonly id="price">
+    <label for="price">Monthly Price</label>
+    <input class="form-control" id="price" type="int" placeholder="Monthly Price">
   </div>
 
   <div class="form-group">
-    <label for="exampleFormControlInput1">Square Feet</label>
-    <input class="form-control" id="area" type="int" placeholder="sqft" readonly id="sqft">
+    <label for="area1">Square Feet</label>
+    <input class="form-control" id="area" type="int" placeholder="sqft">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Number of Bedrooms</label>
+    <label for="beds">Number of Bedrooms</label>
     <select class="form-control" id="beds">
       <option>1</option>
       <option>2</option>
@@ -51,7 +40,7 @@ Description
     </select>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Number of Bathrooms</label>
+    <label for="baths">Number of Bathrooms</label>
     <select class="form-control" id="baths">
       <option>1</option>
       <option>2</option>
@@ -139,18 +128,22 @@ Description
     </div>
   </div>
 
+<div class="form-group col-md-8">
+      <label for="image">Image Url:</label>
+      <input type="text" class="form-control" id="image">
+    </div>
 
   <!-- have URL Input -->
 
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Description</label>
-    <textarea class="form-control" id="Description" rows="3"></textarea>
+    <textarea class="form-control" id="description" rows="3"></textarea>
   </div>
 </form>
-<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+<button type="button" id="btnSave"class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
   Submit
 </button>
 
 @section Scripts {
-    <script src="/js/register/js"></script>
+    <script src="/js/register.js"></script>
 }

@@ -4,15 +4,17 @@ h2 {
     color:#666768;
 }
 
-form {
+.col-8 {
     background: url(interior.jpg);
 }
 
 .form-group {
     color: rgb(131, 121, 121);
+    border: 2px solid rgb(53, 47, 47);
 }
 
 
 .hide{
     display: none;  
 }
+
