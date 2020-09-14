@@ -19,6 +19,7 @@ function displayProperty(property) {
     //create the syntax
     var syntax = `<div class='item'>
         <h2 class = 'title'>${property.title}</h2>
+        <h4 class = 'title'>${property.title}</h2>
     </div>`;
 
     //get container
